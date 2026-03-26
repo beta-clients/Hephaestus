@@ -128,7 +128,7 @@ public class StatFileWriter
             {
                 J_JsonNode j_jsonnode = (J_JsonNode)iterator.next();
                 Map map = j_jsonnode.func_27214_c();
-                Map.Entry entry = (Map.Entry)map.entrySet().iterator().next();
+                java.util.Map.Entry entry = (java.util.Map.Entry)map.entrySet().iterator().next();
                 int i = Integer.parseInt(((J_JsonStringNode)entry.getKey()).func_27216_b());
                 int j = Integer.parseInt(((J_JsonNode)entry.getValue()).func_27216_b());
                 StatBase statbase = StatList.func_27361_a(i);

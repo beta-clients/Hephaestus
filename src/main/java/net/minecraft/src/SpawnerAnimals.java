@@ -244,7 +244,7 @@ public final class SpawnerAnimals
                         try
                         {
                             entityliving = (EntityLiving)aclass[i1].getConstructor(new Class[] {
-                                World.class
+                                net.minecraft.src.World.class
                             }).newInstance(new Object[] {
                                 world
                             });
@@ -292,7 +292,7 @@ public final class SpawnerAnimals
     static 
     {
         nightSpawnEntities = (new Class[] {
-            EntitySpider.class, EntityZombie.class, EntitySkeleton.class
+            net.minecraft.src.EntitySpider.class, net.minecraft.src.EntityZombie.class, net.minecraft.src.EntitySkeleton.class
         });
     }
 }

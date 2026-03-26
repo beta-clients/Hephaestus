@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 // Referenced classes of package net.minecraft.src:
 //            PlayerController, EntityPlayer, World, EntityPlayerSP, 
 //            ItemStack, Packet14BlockDig, NetClientHandler, Block, 
-//            StepSound, SoundManager, GuiInGame, RenderGlobal,
+//            StepSound, SoundManager, GuiIngame, RenderGlobal, 
 //            InventoryPlayer, Packet16BlockItemSwitch, Packet15Place, EntityClientPlayerMP, 
 //            Packet7UseEntity, Entity, Container, Packet102WindowClick
 
@@ -29,11 +29,6 @@ public class PlayerControllerMP extends PlayerController
         isHittingBlock = false;
         currentPlayerItem = 0;
         netClientHandler = netclienthandler;
-    }
-
-    @Override
-    public boolean isBeingUsed() {
-        return this.isHittingBlock;
     }
 
     public void flipPlayer(EntityPlayer entityplayer)
@@ -137,12 +132,12 @@ public class PlayerControllerMP extends PlayerController
     {
         if(curBlockDamageMP <= 0.0F)
         {
-            mc.inGameGUI.damageGuiPartialTime = 0.0F;
+            mc.ingameGUI.damageGuiPartialTime = 0.0F;
             mc.renderGlobal.damagePartialTime = 0.0F;
         } else
         {
             float f1 = prevBlockDamageMP + (curBlockDamageMP - prevBlockDamageMP) * f;
-            mc.inGameGUI.damageGuiPartialTime = f1;
+            mc.ingameGUI.damageGuiPartialTime = f1;
             mc.renderGlobal.damagePartialTime = f1;
         }
     }
@@ -164,7 +159,7 @@ public class PlayerControllerMP extends PlayerController
         mc.sndManager.playRandomMusicIfReady();
     }
 
-    public void syncCurrentPlayItem()
+    private void syncCurrentPlayItem()
     {
         int i = mc.thePlayer.inventory.currentItem;
         if(i != currentPlayerItem)
@@ -177,11 +172,6 @@ public class PlayerControllerMP extends PlayerController
     public boolean sendPlaceBlock(EntityPlayer entityplayer, World world, ItemStack itemstack, int i, int j, int k, int l)
     {
         syncCurrentPlayItem();
-        //HephDebug
-        /* System.out.println("[PlayerControllerMP] - Place block packet: {X: " +
-        i + ", Y: " + j + ", Z: " + k + ", SIDE: " + l + ", ID: "
-        + entityplayer.inventory.getCurrentItem().itemID + ", Size:" +
-        + entityplayer.inventory.getCurrentItem().stackSize + "}"); */
         netClientHandler.addToSendQueue(new Packet15Place(i, j, k, l, entityplayer.inventory.getCurrentItem()));
         boolean flag = super.sendPlaceBlock(entityplayer, world, itemstack, i, j, k, l);
         return flag;
@@ -236,7 +226,7 @@ public class PlayerControllerMP extends PlayerController
     private int currentBlockX;
     private int currentBlockY;
     private int currentblockZ;
-    public float curBlockDamageMP;
+    private float curBlockDamageMP;
     private float prevBlockDamageMP;
     private float field_9441_h;
     private int blockHitDelay;

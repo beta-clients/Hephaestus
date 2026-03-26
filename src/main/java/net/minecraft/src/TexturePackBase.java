@@ -38,7 +38,7 @@ public abstract class TexturePackBase
 
     public InputStream getResourceAsStream(String s)
     {
-        return (TexturePackBase.class).getResourceAsStream(s);
+        return (net.minecraft.src.TexturePackBase.class).getResourceAsStream(s);
     }
 
     public String texturePackFileName;

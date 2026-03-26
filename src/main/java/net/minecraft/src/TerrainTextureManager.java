@@ -27,7 +27,7 @@ public class TerrainTextureManager
         field_1182_g = new int[768];
         try
         {
-            BufferedImage bufferedimage = ImageIO.read((TerrainTextureManager.class).getResource("/terrain.png"));
+            BufferedImage bufferedimage = ImageIO.read((net.minecraft.src.TerrainTextureManager.class).getResource("/terrain.png"));
             int ai[] = new int[0x10000];
             bufferedimage.getRGB(0, 0, 256, 256, ai, 0, 256);
             for(int j = 0; j < 256; j++)

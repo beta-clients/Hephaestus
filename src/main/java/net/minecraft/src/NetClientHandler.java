@@ -23,7 +23,7 @@ import net.minecraft.client.Minecraft;
 //            Packet10Flying, AxisAlignedBB, Packet50PreChunk, Packet52MultiBlockChange, 
 //            Chunk, Packet51MapChunk, Packet53BlockChange, GuiConnectFailed, 
 //            Packet255KickDisconnect, Packet22Collect, EntityPickupFX, EffectRenderer, 
-//            Packet3Chat, GuiInGame, Packet18Animation, Packet17Sleep,
+//            Packet3Chat, GuiIngame, Packet18Animation, Packet17Sleep, 
 //            Packet2Handshake, Session, Packet24MobSpawn, EntityList, 
 //            Packet4UpdateTime, World, ChunkCoordinates, Packet6SpawnPosition, 
 //            WorldInfo, Packet39AttachEntity, Packet38EntityStatus, Packet8UpdateHealth, 
@@ -425,7 +425,7 @@ public class NetClientHandler extends NetHandler
 
     public void handleChat(Packet3Chat packet3chat)
     {
-        mc.inGameGUI.addChatMessage(packet3chat.message);
+        mc.ingameGUI.addChatMessage(packet3chat.message);
     }
 
     public void handleArmAnimation(Packet18Animation packet18animation)

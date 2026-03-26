@@ -23,7 +23,7 @@ public class TexturePackDefault extends TexturePackBase
         firstDescriptionLine = "The default look of Minecraft";
         try
         {
-            texturePackThumbnail = ImageIO.read((TexturePackDefault.class).getResource("/pack.png"));
+            texturePackThumbnail = ImageIO.read((net.minecraft.src.TexturePackDefault.class).getResource("/pack.png"));
         }
         catch(IOException ioexception)
         {

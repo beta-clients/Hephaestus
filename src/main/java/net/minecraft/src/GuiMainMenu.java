@@ -8,8 +8,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.*;
-
-import io.github.qe7.ui.account.GuiAccountLogin;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 
@@ -28,7 +26,7 @@ public class GuiMainMenu extends GuiScreen
         try
         {
             ArrayList arraylist = new ArrayList();
-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((GuiMainMenu.class).getResourceAsStream("/title/splashes.txt"), Charset.forName("UTF-8")));
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((net.minecraft.src.GuiMainMenu.class).getResourceAsStream("/title/splashes.txt"), Charset.forName("UTF-8")));
             String s = "";
             do
             {
@@ -77,26 +75,23 @@ public class GuiMainMenu extends GuiScreen
         {
             splashText = "Happy new year!";
         }
-        if(new Random().nextInt(10) == 0) {
-            if(mc.session.username.equals("rg4") || mc.session.username.equals("wsndow0")) {
-                splashText = "Thanks, " + this.mc.session.username + "!";
-            } else
-                splashText = "Welcome, " + this.mc.session.username + "!";
-        }
         StringTranslate stringtranslate = StringTranslate.getInstance();
         int i = height / 4 + 48;
-
         controlList.add(new GuiButton(1, width / 2 - 100, i, stringtranslate.translateKey("menu.singleplayer")));
-
         controlList.add(multiplayerButton = new GuiButton(2, width / 2 - 100, i + 24, stringtranslate.translateKey("menu.multiplayer")));
-
-        controlList.add(new GuiButton(5, width / 2 - 100, i + (24 * 2), "Account Login"));
-
-        controlList.add(new GuiButton(3, width / 2 - 100, i + (24 * 3), stringtranslate.translateKey("menu.mods")));
-
-        controlList.add(new GuiButton(0, width / 2 - 100, i + (24 * 4), 98, 20, stringtranslate.translateKey("menu.options")));
-
-        controlList.add(new GuiButton(4, width / 2 + 2, i + (24 * 4), 98, 20, stringtranslate.translateKey("menu.quit")));
+        controlList.add(new GuiButton(3, width / 2 - 100, i + 48, stringtranslate.translateKey("menu.mods")));
+        if(mc.hideQuitButton)
+        {
+            controlList.add(new GuiButton(0, width / 2 - 100, i + 72, stringtranslate.translateKey("menu.options")));
+        } else
+        {
+            controlList.add(new GuiButton(0, width / 2 - 100, i + 72 + 12, 98, 20, stringtranslate.translateKey("menu.options")));
+            controlList.add(new GuiButton(4, width / 2 + 2, i + 72 + 12, 98, 20, stringtranslate.translateKey("menu.quit")));
+        }
+        if(mc.session == null)
+        {
+            multiplayerButton.enabled = false;
+        }
     }
 
     protected void actionPerformed(GuiButton guibutton)
@@ -120,9 +115,6 @@ public class GuiMainMenu extends GuiScreen
         if(guibutton.id == 4)
         {
             mc.shutdown();
-        }
-        if (guibutton.id == 5) {
-            mc.displayGuiScreen(new GuiAccountLogin(this));
         }
     }
 

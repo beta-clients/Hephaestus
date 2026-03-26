@@ -24,7 +24,7 @@ public class TextureCompassFX extends TextureFX
         tileImage = 1;
         try
         {
-            BufferedImage bufferedimage = ImageIO.read((Minecraft.class).getResource("/gui/items.png"));
+            BufferedImage bufferedimage = ImageIO.read((net.minecraft.client.Minecraft.class).getResource("/gui/items.png"));
             int i = (iconIndex % 16) * 16;
             int j = (iconIndex / 16) * 16;
             bufferedimage.getRGB(i, j, 16, 16, compassIconImageData, 0, 16);

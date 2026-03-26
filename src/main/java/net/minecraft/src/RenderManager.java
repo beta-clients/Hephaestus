@@ -34,34 +34,34 @@ public class RenderManager
     private RenderManager()
     {
         entityRenderMap = new HashMap();
-        entityRenderMap.put(EntitySpider.class, new RenderSpider());
-        entityRenderMap.put(EntityPig.class, new RenderPig(new ModelPig(), new ModelPig(0.5F), 0.7F));
-        entityRenderMap.put(EntitySheep.class, new RenderSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-        entityRenderMap.put(EntityCow.class, new RenderCow(new ModelCow(), 0.7F));
-        entityRenderMap.put(EntityWolf.class, new RenderWolf(new ModelWolf(), 0.5F));
-        entityRenderMap.put(EntityChicken.class, new RenderChicken(new ModelChicken(), 0.3F));
-        entityRenderMap.put(EntityCreeper.class, new RenderCreeper());
-        entityRenderMap.put(EntitySkeleton.class, new RenderBiped(new ModelSkeleton(), 0.5F));
-        entityRenderMap.put(EntityZombie.class, new RenderBiped(new ModelZombie(), 0.5F));
-        entityRenderMap.put(EntitySlime.class, new RenderSlime(new ModelSlime(16), new ModelSlime(0), 0.25F));
-        entityRenderMap.put(EntityPlayer.class, new RenderPlayer());
-        entityRenderMap.put(EntityGiantZombie.class, new RenderGiantZombie(new ModelZombie(), 0.5F, 6F));
-        entityRenderMap.put(EntityGhast.class, new RenderGhast());
-        entityRenderMap.put(EntitySquid.class, new RenderSquid(new ModelSquid(), 0.7F));
-        entityRenderMap.put(EntityLiving.class, new RenderLiving(new ModelBiped(), 0.5F));
-        entityRenderMap.put(Entity.class, new RenderEntity());
-        entityRenderMap.put(EntityPainting.class, new RenderPainting());
-        entityRenderMap.put(EntityArrow.class, new RenderArrow());
-        entityRenderMap.put(EntitySnowball.class, new RenderSnowball(Item.snowball.getIconFromDamage(0)));
-        entityRenderMap.put(EntityEgg.class, new RenderSnowball(Item.egg.getIconFromDamage(0)));
-        entityRenderMap.put(EntityFireball.class, new RenderFireball());
-        entityRenderMap.put(EntityItem.class, new RenderItem());
-        entityRenderMap.put(EntityTNTPrimed.class, new RenderTNTPrimed());
-        entityRenderMap.put(EntityFallingSand.class, new RenderFallingSand());
-        entityRenderMap.put(EntityMinecart.class, new RenderMinecart());
-        entityRenderMap.put(EntityBoat.class, new RenderBoat());
-        entityRenderMap.put(EntityFish.class, new RenderFish());
-        entityRenderMap.put(EntityLightningBolt.class, new RenderLightningBolt());
+        entityRenderMap.put(net.minecraft.src.EntitySpider.class, new RenderSpider());
+        entityRenderMap.put(net.minecraft.src.EntityPig.class, new RenderPig(new ModelPig(), new ModelPig(0.5F), 0.7F));
+        entityRenderMap.put(net.minecraft.src.EntitySheep.class, new RenderSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
+        entityRenderMap.put(net.minecraft.src.EntityCow.class, new RenderCow(new ModelCow(), 0.7F));
+        entityRenderMap.put(net.minecraft.src.EntityWolf.class, new RenderWolf(new ModelWolf(), 0.5F));
+        entityRenderMap.put(net.minecraft.src.EntityChicken.class, new RenderChicken(new ModelChicken(), 0.3F));
+        entityRenderMap.put(net.minecraft.src.EntityCreeper.class, new RenderCreeper());
+        entityRenderMap.put(net.minecraft.src.EntitySkeleton.class, new RenderBiped(new ModelSkeleton(), 0.5F));
+        entityRenderMap.put(net.minecraft.src.EntityZombie.class, new RenderBiped(new ModelZombie(), 0.5F));
+        entityRenderMap.put(net.minecraft.src.EntitySlime.class, new RenderSlime(new ModelSlime(16), new ModelSlime(0), 0.25F));
+        entityRenderMap.put(net.minecraft.src.EntityPlayer.class, new RenderPlayer());
+        entityRenderMap.put(net.minecraft.src.EntityGiantZombie.class, new RenderGiantZombie(new ModelZombie(), 0.5F, 6F));
+        entityRenderMap.put(net.minecraft.src.EntityGhast.class, new RenderGhast());
+        entityRenderMap.put(net.minecraft.src.EntitySquid.class, new RenderSquid(new ModelSquid(), 0.7F));
+        entityRenderMap.put(net.minecraft.src.EntityLiving.class, new RenderLiving(new ModelBiped(), 0.5F));
+        entityRenderMap.put(net.minecraft.src.Entity.class, new RenderEntity());
+        entityRenderMap.put(net.minecraft.src.EntityPainting.class, new RenderPainting());
+        entityRenderMap.put(net.minecraft.src.EntityArrow.class, new RenderArrow());
+        entityRenderMap.put(net.minecraft.src.EntitySnowball.class, new RenderSnowball(Item.snowball.getIconFromDamage(0)));
+        entityRenderMap.put(net.minecraft.src.EntityEgg.class, new RenderSnowball(Item.egg.getIconFromDamage(0)));
+        entityRenderMap.put(net.minecraft.src.EntityFireball.class, new RenderFireball());
+        entityRenderMap.put(net.minecraft.src.EntityItem.class, new RenderItem());
+        entityRenderMap.put(net.minecraft.src.EntityTNTPrimed.class, new RenderTNTPrimed());
+        entityRenderMap.put(net.minecraft.src.EntityFallingSand.class, new RenderFallingSand());
+        entityRenderMap.put(net.minecraft.src.EntityMinecart.class, new RenderMinecart());
+        entityRenderMap.put(net.minecraft.src.EntityBoat.class, new RenderBoat());
+        entityRenderMap.put(net.minecraft.src.EntityFish.class, new RenderFish());
+        entityRenderMap.put(net.minecraft.src.EntityLightningBolt.class, new RenderLightningBolt());
         Render render;
         for(Iterator iterator = entityRenderMap.values().iterator(); iterator.hasNext(); render.setRenderManager(this))
         {
@@ -73,7 +73,7 @@ public class RenderManager
     public Render getEntityClassRenderObject(Class class1)
     {
         Render render = (Render)entityRenderMap.get(class1);
-        if(render == null && class1 != (Entity.class))
+        if(render == null && class1 != (net.minecraft.src.Entity.class))
         {
             render = getEntityClassRenderObject(class1.getSuperclass());
             entityRenderMap.put(class1, render);

@@ -17,7 +17,7 @@ public class AchievementMap
         guidMap = new HashMap();
         try
         {
-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((AchievementMap.class).getResourceAsStream("/achievement/map.txt")));
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((net.minecraft.src.AchievementMap.class).getResourceAsStream("/achievement/map.txt")));
             String s;
             while((s = bufferedreader.readLine()) != null) 
             {

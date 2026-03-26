@@ -133,7 +133,7 @@ public class TexturePackCustom extends TexturePackBase
             }
         }
         catch(Exception exception) { }
-        return (TexturePackBase.class).getResourceAsStream(s);
+        return (net.minecraft.src.TexturePackBase.class).getResourceAsStream(s);
     }
 
     private ZipFile texturePackZipFile;

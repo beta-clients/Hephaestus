@@ -147,7 +147,7 @@ public class EntityWolf extends EntityAnimal
         } else
         if(playerToAttack == null && !hasPath() && !isWolfTamed() && worldObj.rand.nextInt(100) == 0)
         {
-            List list = worldObj.getEntitiesWithinAABB(EntitySheep.class, AxisAlignedBB.getBoundingBoxFromPool(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand(16D, 4D, 16D));
+            List list = worldObj.getEntitiesWithinAABB(net.minecraft.src.EntitySheep.class, AxisAlignedBB.getBoundingBoxFromPool(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand(16D, 4D, 16D));
             if(!list.isEmpty())
             {
                 setTarget((Entity)list.get(worldObj.rand.nextInt(list.size())));
@@ -347,7 +347,7 @@ public class EntityWolf extends EntityAnimal
                 }
                 if(entity instanceof EntityLiving)
                 {
-                    List list = worldObj.getEntitiesWithinAABB(EntityWolf.class, AxisAlignedBB.getBoundingBoxFromPool(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand(16D, 4D, 16D));
+                    List list = worldObj.getEntitiesWithinAABB(net.minecraft.src.EntityWolf.class, AxisAlignedBB.getBoundingBoxFromPool(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand(16D, 4D, 16D));
                     Iterator iterator = list.iterator();
                     do
                     {

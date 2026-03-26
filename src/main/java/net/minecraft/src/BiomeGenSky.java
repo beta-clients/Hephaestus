@@ -17,7 +17,7 @@ public class BiomeGenSky extends BiomeGenBase
         spawnableMonsterList.clear();
         spawnableCreatureList.clear();
         spawnableWaterCreatureList.clear();
-        spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10));
+        spawnableCreatureList.add(new SpawnListEntry(net.minecraft.src.EntityChicken.class, 10));
     }
 
     public int getSkyColorByTemp(float f)

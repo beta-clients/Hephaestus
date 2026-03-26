@@ -17,7 +17,6 @@ public class GameSettings
 
     public GameSettings(Minecraft minecraft, File file)
     {
-        FOV = 0.0F;
         musicVolume = 1.0F;
         soundVolume = 1.0F;
         mouseSensitivity = 0.5F;
@@ -132,10 +131,6 @@ public class GameSettings
         {
             mouseSensitivity = f;
         }
-        if(enumoptions == EnumOptions.FOV)
-        {
-            this.FOV = f;
-        }
     }
 
     public void setOptionValue(EnumOptions enumoptions, int i)
@@ -200,12 +195,7 @@ public class GameSettings
         if(enumoptions == EnumOptions.SENSITIVITY)
         {
             return mouseSensitivity;
-        }
-        if(enumoptions == EnumOptions.FOV)
-        {
-            return FOV;
-        }
-        else
+        } else
         {
             return 0.0F;
         }
@@ -252,20 +242,6 @@ public class GameSettings
                 } else
                 {
                     return (new StringBuilder()).append(s).append((int)(f * 200F)).append("%").toString();
-                }
-            }
-            if(enumoptions == EnumOptions.FOV)
-            {
-                if(f == 0.0F)
-                {
-                    return (new StringBuilder()).append(s).append(stringtranslate.translateKey("Default")).toString();
-                }
-                if(f == 1.0F)
-                {
-                    return (new StringBuilder()).append(s).append(stringtranslate.translateKey("Quake Pro")).toString();
-                } else
-                {
-                    return (new StringBuilder()).append(s).append((int)(70 + (f / 0.014084507F))).toString();
                 }
             }
             if(f == 0.0F)
@@ -332,10 +308,6 @@ public class GameSettings
                 try
                 {
                     String as[] = s.split(":");
-                    if(as[0].equals("FOV"))
-                    {
-                        FOV = parseFloat(as[1]);
-                    }
                     if(as[0].equals("music"))
                     {
                         musicVolume = parseFloat(as[1]);
@@ -441,7 +413,6 @@ public class GameSettings
         try
         {
             PrintWriter printwriter = new PrintWriter(new FileWriter(optionsFile));
-            printwriter.println((new StringBuilder()).append("FOV:").append(FOV).toString());
             printwriter.println((new StringBuilder()).append("music:").append(musicVolume).toString());
             printwriter.println((new StringBuilder()).append("sound:").append(soundVolume).toString());
             printwriter.println((new StringBuilder()).append("invertYMouse:").append(invertMouse).toString());
@@ -483,7 +454,6 @@ public class GameSettings
     private static final String LIMIT_FRAMERATES[] = {
         "performance.max", "performance.balanced", "performance.powersaver"
     };
-    public float FOV;
     public float musicVolume;
     public float soundVolume;
     public float mouseSensitivity;

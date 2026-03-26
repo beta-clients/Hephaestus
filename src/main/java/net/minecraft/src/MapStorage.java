@@ -41,7 +41,7 @@ public class MapStorage
                     try
                     {
                         mapdatabase = (MapDataBase)class1.getConstructor(new Class[] {
-                            String.class
+                            java.lang.String.class
                         }).newInstance(new Object[] {
                             s
                         });

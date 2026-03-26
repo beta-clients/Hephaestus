@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 // Referenced classes of package net.minecraft.src:
 //            PlayerController, EntityPlayer, World, EntityPlayerSP, 
 //            Block, ItemStack, StepSound, SoundManager, 
-//            GuiInGame, RenderGlobal
+//            GuiIngame, RenderGlobal
 
 public class PlayerControllerSP extends PlayerController
 {
@@ -24,11 +24,6 @@ public class PlayerControllerSP extends PlayerController
         prevBlockDamage = 0.0F;
         field_1069_h = 0.0F;
         blockHitWait = 0;
-    }
-
-    @Override
-    public boolean isBeingUsed() {
-        return this.field_1073_d != -1;
     }
 
     public void flipPlayer(EntityPlayer entityplayer)
@@ -123,12 +118,12 @@ public class PlayerControllerSP extends PlayerController
     {
         if(curBlockDamage <= 0.0F)
         {
-            mc.inGameGUI.damageGuiPartialTime = 0.0F;
+            mc.ingameGUI.damageGuiPartialTime = 0.0F;
             mc.renderGlobal.damagePartialTime = 0.0F;
         } else
         {
             float f1 = prevBlockDamage + (curBlockDamage - prevBlockDamage) * f;
-            mc.inGameGUI.damageGuiPartialTime = f1;
+            mc.ingameGUI.damageGuiPartialTime = f1;
             mc.renderGlobal.damagePartialTime = f1;
         }
     }
@@ -152,7 +147,7 @@ public class PlayerControllerSP extends PlayerController
     private int field_1074_c;
     private int field_1073_d;
     private int field_1072_e;
-    public float curBlockDamage;
+    private float curBlockDamage;
     private float prevBlockDamage;
     private float field_1069_h;
     private int blockHitWait;

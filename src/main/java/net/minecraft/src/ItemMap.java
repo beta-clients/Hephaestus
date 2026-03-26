@@ -23,7 +23,7 @@ public class ItemMap extends ItemMapBase
     public static MapData func_28013_a(short word0, World world)
     {
         String s = (new StringBuilder()).append("map_").append(word0).toString();
-        MapData mapdata = (MapData)world.loadItemData(MapData.class, (new StringBuilder()).append("map_").append(word0).toString());
+        MapData mapdata = (MapData)world.loadItemData(net.minecraft.src.MapData.class, (new StringBuilder()).append("map_").append(word0).toString());
         if(mapdata == null)
         {
             int i = world.getUniqueDataId("map");
@@ -37,7 +37,7 @@ public class ItemMap extends ItemMapBase
     public MapData func_28012_a(ItemStack itemstack, World world)
     {
         String s = (new StringBuilder()).append("map_").append(itemstack.getItemDamage()).toString();
-        MapData mapdata = (MapData)world.loadItemData(MapData.class, (new StringBuilder()).append("map_").append(itemstack.getItemDamage()).toString());
+        MapData mapdata = (MapData)world.loadItemData(net.minecraft.src.MapData.class, (new StringBuilder()).append("map_").append(itemstack.getItemDamage()).toString());
         if(mapdata == null)
         {
             itemstack.setItemDamage(world.getUniqueDataId("map"));

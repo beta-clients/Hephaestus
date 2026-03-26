@@ -15,8 +15,8 @@ public class StringTranslate
         translateTable = new Properties();
         try
         {
-            translateTable.load((StringTranslate.class).getResourceAsStream("/lang/en_US.lang"));
-            translateTable.load((StringTranslate.class).getResourceAsStream("/lang/stats_US.lang"));
+            translateTable.load((net.minecraft.src.StringTranslate.class).getResourceAsStream("/lang/en_US.lang"));
+            translateTable.load((net.minecraft.src.StringTranslate.class).getResourceAsStream("/lang/stats_US.lang"));
         }
         catch(IOException ioexception)
         {

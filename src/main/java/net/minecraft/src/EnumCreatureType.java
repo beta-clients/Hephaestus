@@ -10,9 +10,9 @@ package net.minecraft.src;
 
 public enum EnumCreatureType
 {
-    monster("monster", 0, IMob.class, 70, Material.air, false),
-    creature("creature", 1, EntityAnimal.class, 15, Material.air, true),
-    waterCreature("waterCreature", 2, EntityWaterMob.class, 5, Material.water, true);
+    monster("monster", 0, net.minecraft.src.IMob.class, 70, Material.air, false),
+    creature("creature", 1, net.minecraft.src.EntityAnimal.class, 15, Material.air, true),
+    waterCreature("waterCreature", 2, net.minecraft.src.EntityWaterMob.class, 5, Material.water, true);
 /*
     public static EnumCreatureType[] values()
     {

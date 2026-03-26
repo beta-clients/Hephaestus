@@ -17,7 +17,7 @@ public class BiomeGenHell extends BiomeGenBase
         spawnableMonsterList.clear();
         spawnableCreatureList.clear();
         spawnableWaterCreatureList.clear();
-        spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 10));
-        spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 10));
+        spawnableMonsterList.add(new SpawnListEntry(net.minecraft.src.EntityGhast.class, 10));
+        spawnableMonsterList.add(new SpawnListEntry(net.minecraft.src.EntityPigZombie.class, 10));
     }
 }

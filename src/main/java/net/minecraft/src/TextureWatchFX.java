@@ -24,11 +24,11 @@ public class TextureWatchFX extends TextureFX
         tileImage = 1;
         try
         {
-            BufferedImage bufferedimage = ImageIO.read((Minecraft.class).getResource("/gui/items.png"));
+            BufferedImage bufferedimage = ImageIO.read((net.minecraft.client.Minecraft.class).getResource("/gui/items.png"));
             int i = (iconIndex % 16) * 16;
             int j = (iconIndex / 16) * 16;
             bufferedimage.getRGB(i, j, 16, 16, watchIconImageData, 0, 16);
-            bufferedimage = ImageIO.read((Minecraft.class).getResource("/misc/dial.png"));
+            bufferedimage = ImageIO.read((net.minecraft.client.Minecraft.class).getResource("/misc/dial.png"));
             bufferedimage.getRGB(0, 0, 16, 16, dialImageData, 0, 16);
         }
         catch(IOException ioexception)

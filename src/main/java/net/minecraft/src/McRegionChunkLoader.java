@@ -22,7 +22,7 @@ public class McRegionChunkLoader
     public Chunk loadChunk(World world, int i, int j)
         throws IOException
     {
-        DataInputStream datainputstream = RegionFileCache.getChunkInputStream(worldDir, i, j);
+        java.io.DataInputStream datainputstream = RegionFileCache.getChunkInputStream(worldDir, i, j);
         NBTTagCompound nbttagcompound;
         if(datainputstream != null)
         {

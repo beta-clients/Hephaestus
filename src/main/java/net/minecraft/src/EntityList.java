@@ -42,7 +42,7 @@ public class EntityList
             if(class1 != null)
             {
                 entity = (Entity)class1.getConstructor(new Class[] {
-                    World.class
+                    net.minecraft.src.World.class
                 }).newInstance(new Object[] {
                     world
                 });
@@ -64,7 +64,7 @@ public class EntityList
             if(class1 != null)
             {
                 entity = (Entity)class1.getConstructor(new Class[] {
-                    World.class
+                    net.minecraft.src.World.class
                 }).newInstance(new Object[] {
                     world
                 });
@@ -93,7 +93,7 @@ public class EntityList
             if(class1 != null)
             {
                 entity = (Entity)class1.getConstructor(new Class[] {
-                    World.class
+                    net.minecraft.src.World.class
                 }).newInstance(new Object[] {
                     world
                 });
@@ -127,29 +127,29 @@ public class EntityList
 
     static 
     {
-        addMapping(EntityArrow.class, "Arrow", 10);
-        addMapping(EntitySnowball.class, "Snowball", 11);
-        addMapping(EntityItem.class, "Item", 1);
-        addMapping(EntityPainting.class, "Painting", 9);
-        addMapping(EntityLiving.class, "Mob", 48);
-        addMapping(EntityMob.class, "Monster", 49);
-        addMapping(EntityCreeper.class, "Creeper", 50);
-        addMapping(EntitySkeleton.class, "Skeleton", 51);
-        addMapping(EntitySpider.class, "Spider", 52);
-        addMapping(EntityGiantZombie.class, "Giant", 53);
-        addMapping(EntityZombie.class, "Zombie", 54);
-        addMapping(EntitySlime.class, "Slime", 55);
-        addMapping(EntityGhast.class, "Ghast", 56);
-        addMapping(EntityPigZombie.class, "PigZombie", 57);
-        addMapping(EntityPig.class, "Pig", 90);
-        addMapping(EntitySheep.class, "Sheep", 91);
-        addMapping(EntityCow.class, "Cow", 92);
-        addMapping(EntityChicken.class, "Chicken", 93);
-        addMapping(EntitySquid.class, "Squid", 94);
-        addMapping(EntityWolf.class, "Wolf", 95);
-        addMapping(EntityTNTPrimed.class, "PrimedTnt", 20);
-        addMapping(EntityFallingSand.class, "FallingSand", 21);
-        addMapping(EntityMinecart.class, "Minecart", 40);
-        addMapping(EntityBoat.class, "Boat", 41);
+        addMapping(net.minecraft.src.EntityArrow.class, "Arrow", 10);
+        addMapping(net.minecraft.src.EntitySnowball.class, "Snowball", 11);
+        addMapping(net.minecraft.src.EntityItem.class, "Item", 1);
+        addMapping(net.minecraft.src.EntityPainting.class, "Painting", 9);
+        addMapping(net.minecraft.src.EntityLiving.class, "Mob", 48);
+        addMapping(net.minecraft.src.EntityMob.class, "Monster", 49);
+        addMapping(net.minecraft.src.EntityCreeper.class, "Creeper", 50);
+        addMapping(net.minecraft.src.EntitySkeleton.class, "Skeleton", 51);
+        addMapping(net.minecraft.src.EntitySpider.class, "Spider", 52);
+        addMapping(net.minecraft.src.EntityGiantZombie.class, "Giant", 53);
+        addMapping(net.minecraft.src.EntityZombie.class, "Zombie", 54);
+        addMapping(net.minecraft.src.EntitySlime.class, "Slime", 55);
+        addMapping(net.minecraft.src.EntityGhast.class, "Ghast", 56);
+        addMapping(net.minecraft.src.EntityPigZombie.class, "PigZombie", 57);
+        addMapping(net.minecraft.src.EntityPig.class, "Pig", 90);
+        addMapping(net.minecraft.src.EntitySheep.class, "Sheep", 91);
+        addMapping(net.minecraft.src.EntityCow.class, "Cow", 92);
+        addMapping(net.minecraft.src.EntityChicken.class, "Chicken", 93);
+        addMapping(net.minecraft.src.EntitySquid.class, "Squid", 94);
+        addMapping(net.minecraft.src.EntityWolf.class, "Wolf", 95);
+        addMapping(net.minecraft.src.EntityTNTPrimed.class, "PrimedTnt", 20);
+        addMapping(net.minecraft.src.EntityFallingSand.class, "FallingSand", 21);
+        addMapping(net.minecraft.src.EntityMinecart.class, "Minecart", 40);
+        addMapping(net.minecraft.src.EntityBoat.class, "Boat", 41);
     }
 }

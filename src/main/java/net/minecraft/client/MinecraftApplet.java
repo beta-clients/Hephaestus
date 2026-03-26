@@ -100,26 +100,18 @@ public class MinecraftApplet extends Applet
         {
             return;
         }
+        mc.shutdown();
         try
         {
-            mc.shutdown();
             mcThread.join(10000L);
         }
-        catch (InterruptedException interruptedexception)
-        {
-            interruptedexception.printStackTrace();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
+        catch(InterruptedException interruptedexception)
         {
             try
             {
                 mc.shutdownMinecraftApplet();
             }
-            catch (Exception exception)
+            catch(Exception exception)
             {
                 exception.printStackTrace();
             }

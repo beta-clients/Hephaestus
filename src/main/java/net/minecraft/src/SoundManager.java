@@ -51,7 +51,7 @@ public class SoundManager
             options.saveOptions();
             SoundSystemConfig.addLibrary(paulscode.sound.libraries.LibraryLWJGLOpenAL.class);
             SoundSystemConfig.setCodec("ogg", paulscode.sound.codecs.CodecJOrbis.class);
-            SoundSystemConfig.setCodec("mus", CodecMus.class);
+            SoundSystemConfig.setCodec("mus", net.minecraft.src.CodecMus.class);
             SoundSystemConfig.setCodec("wav", paulscode.sound.codecs.CodecWav.class);
             sndSystem = new SoundSystem();
             options.soundVolume = f;

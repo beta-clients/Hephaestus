@@ -19,7 +19,7 @@ public class ChatAllowedCharacters
         String s = "";
         try
         {
-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((ChatAllowedCharacters.class).getResourceAsStream("/font.txt"), "UTF-8"));
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader((net.minecraft.src.ChatAllowedCharacters.class).getResourceAsStream("/font.txt"), "UTF-8"));
             String s1 = "";
             do
             {

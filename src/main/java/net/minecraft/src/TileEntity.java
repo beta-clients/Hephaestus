@@ -148,13 +148,13 @@ public class TileEntity
 
     static 
     {
-        addMapping(TileEntityFurnace.class, "Furnace");
-        addMapping(TileEntityChest.class, "Chest");
-        addMapping(TileEntityRecordPlayer.class, "RecordPlayer");
-        addMapping(TileEntityDispenser.class, "Trap");
-        addMapping(TileEntitySign.class, "Sign");
-        addMapping(TileEntityMobSpawner.class, "MobSpawner");
-        addMapping(TileEntityNote.class, "Music");
-        addMapping(TileEntityPiston.class, "Piston");
+        addMapping(net.minecraft.src.TileEntityFurnace.class, "Furnace");
+        addMapping(net.minecraft.src.TileEntityChest.class, "Chest");
+        addMapping(net.minecraft.src.TileEntityRecordPlayer.class, "RecordPlayer");
+        addMapping(net.minecraft.src.TileEntityDispenser.class, "Trap");
+        addMapping(net.minecraft.src.TileEntitySign.class, "Sign");
+        addMapping(net.minecraft.src.TileEntityMobSpawner.class, "MobSpawner");
+        addMapping(net.minecraft.src.TileEntityNote.class, "Music");
+        addMapping(net.minecraft.src.TileEntityPiston.class, "Piston");
     }
 }

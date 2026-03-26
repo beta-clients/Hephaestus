@@ -19,8 +19,7 @@ public enum EnumOptions
     DIFFICULTY("DIFFICULTY", 9, "options.difficulty", false, false),
     GRAPHICS("GRAPHICS", 10, "options.graphics", false, false),
     AMBIENT_OCCLUSION("AMBIENT_OCCLUSION", 11, "options.ao", false, true),
-    GUI_SCALE("GUI_SCALE", 12, "options.guiScale", false, false),
-    FOV("FOV", 13, "FOV", true, false);
+    GUI_SCALE("GUI_SCALE", 12, "options.guiScale", false, false);
 /*
     public static EnumOptions[] values()
     {
@@ -113,7 +112,7 @@ public enum EnumOptions
         GUI_SCALE = new EnumOptions("GUI_SCALE", 12, "options.guiScale", false, false);
 */
         field_20141_n = (new EnumOptions[] {
-            MUSIC, SOUND, INVERT_MOUSE, SENSITIVITY, RENDER_DISTANCE, VIEW_BOBBING, ANAGLYPH, ADVANCED_OPENGL, FRAMERATE_LIMIT, DIFFICULTY, FOV,
+            MUSIC, SOUND, INVERT_MOUSE, SENSITIVITY, RENDER_DISTANCE, VIEW_BOBBING, ANAGLYPH, ADVANCED_OPENGL, FRAMERATE_LIMIT, DIFFICULTY, 
             GRAPHICS, AMBIENT_OCCLUSION, GUI_SCALE
         });
     }

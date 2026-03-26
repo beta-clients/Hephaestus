@@ -18,9 +18,9 @@ public class TileEntityRenderer
     private TileEntityRenderer()
     {
         specialRendererMap = new HashMap();
-        specialRendererMap.put(TileEntitySign.class, new TileEntitySignRenderer());
-        specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
-        specialRendererMap.put(TileEntityPiston.class, new TileEntityRendererPiston());
+        specialRendererMap.put(net.minecraft.src.TileEntitySign.class, new TileEntitySignRenderer());
+        specialRendererMap.put(net.minecraft.src.TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
+        specialRendererMap.put(net.minecraft.src.TileEntityPiston.class, new TileEntityRendererPiston());
         TileEntitySpecialRenderer tileentityspecialrenderer;
         for(Iterator iterator = specialRendererMap.values().iterator(); iterator.hasNext(); tileentityspecialrenderer.setTileEntityRenderer(this))
         {
@@ -32,7 +32,7 @@ public class TileEntityRenderer
     public TileEntitySpecialRenderer getSpecialRendererForClass(Class class1)
     {
         TileEntitySpecialRenderer tileentityspecialrenderer = (TileEntitySpecialRenderer)specialRendererMap.get(class1);
-        if(tileentityspecialrenderer == null && class1 != (TileEntity.class))
+        if(tileentityspecialrenderer == null && class1 != (net.minecraft.src.TileEntity.class))
         {
             tileentityspecialrenderer = getSpecialRendererForClass(class1.getSuperclass());
             specialRendererMap.put(class1, tileentityspecialrenderer);

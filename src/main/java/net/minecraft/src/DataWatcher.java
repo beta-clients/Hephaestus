@@ -228,12 +228,12 @@ public class DataWatcher
     static 
     {
         dataTypes = new HashMap();
-        dataTypes.put(Byte.class, Integer.valueOf(0));
-        dataTypes.put(Short.class, Integer.valueOf(1));
-        dataTypes.put(Integer.class, Integer.valueOf(2));
-        dataTypes.put(Float.class, Integer.valueOf(3));
-        dataTypes.put(String.class, Integer.valueOf(4));
-        dataTypes.put(ItemStack.class, Integer.valueOf(5));
-        dataTypes.put(ChunkCoordinates.class, Integer.valueOf(6));
+        dataTypes.put(java.lang.Byte.class, Integer.valueOf(0));
+        dataTypes.put(java.lang.Short.class, Integer.valueOf(1));
+        dataTypes.put(java.lang.Integer.class, Integer.valueOf(2));
+        dataTypes.put(java.lang.Float.class, Integer.valueOf(3));
+        dataTypes.put(java.lang.String.class, Integer.valueOf(4));
+        dataTypes.put(net.minecraft.src.ItemStack.class, Integer.valueOf(5));
+        dataTypes.put(net.minecraft.src.ChunkCoordinates.class, Integer.valueOf(6));
     }
 }
