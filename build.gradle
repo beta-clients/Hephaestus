@@ -40,3 +40,60 @@ shadowJar {
 }
 
 build.dependsOn shadowJar
+
+// Add generated build constants (git info) and include in sources
+def generatedBuildConstantsDir = layout.buildDirectory.dir("generated/sources/buildconstants/java").get().asFile
+
+// ensure the generated dir is part of the main java source set
+sourceSets.main.java.srcDir generatedBuildConstantsDir
+
+def getCommitHash = { ->
+    def gitProcess = 'git rev-parse HEAD'.execute()
+    gitProcess.waitFor()
+    return gitProcess.text.trim().take(10)
+}
+
+def getBranchName = { ->
+    def gitProcess = 'git rev-parse --abbrev-ref HEAD'.execute()
+    gitProcess.waitFor()
+    return gitProcess.text.trim()
+}
+
+def getRevisionCount = { ->
+    def gitProcess = 'git rev-list --all --count'.execute()
+    gitProcess.waitFor()
+    return gitProcess.text.trim()
+}
+
+tasks.register('generateBuildConstants') {
+    outputs.dir generatedBuildConstantsDir
+    doLast {
+        generatedBuildConstantsDir.mkdirs()
+        def packagePath = 'com.github.qe7.hephaestus'.replace('.', '/')
+        def targetDir = new File(generatedBuildConstantsDir, packagePath)
+        targetDir.mkdirs()
+
+        def gitCommit = getCommitHash()
+        def gitBranch = getBranchName()
+        def gitRevision = getRevisionCount()
+
+        def constantsFile = new File(targetDir, 'BuildConstants.java')
+        constantsFile.text = """package com.github.qe7.hephaestus;
+
+public final class BuildConstants {
+    public static final String GIT_COMMIT = \"${gitCommit}\";
+    public static final String GIT_BRANCH = \"${gitBranch}\";
+    public static final String GIT_REVISION = \"${gitRevision}\";
+    private BuildConstants() {}
+}
+		"""
+    }
+}
+
+sourceSets.main.java.srcDirs += generatedBuildConstantsDir
+tasks.named('compileJava') {
+    dependsOn tasks.named('generateBuildConstants')
+}
+tasks.matching { it.name == 'sourcesJar' }.configureEach {
+    dependsOn tasks.named('generateBuildConstants')
+}

@@ -6,7 +6,6 @@ package net.minecraft.src;
 
 import java.awt.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.MinecraftApplet;
 
 // Referenced classes of package net.minecraft.src:
 //            PanelCrashReport, UnexpectedThrowable
@@ -14,9 +13,9 @@ import net.minecraft.client.MinecraftApplet;
 public final class MinecraftImpl extends Minecraft
 {
 
-    public MinecraftImpl(Component component, Canvas canvas, MinecraftApplet minecraftapplet, int i, int j, boolean flag, Frame frame)
+    public MinecraftImpl(Component component, Canvas canvas, int i, int j, boolean flag, Frame frame)
     {
-        super(component, canvas, minecraftapplet, i, j, flag);
+        super(component, canvas, i, j, flag);
         mcFrame = frame;
     }
 
