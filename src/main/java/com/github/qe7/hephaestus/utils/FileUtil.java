@@ -10,6 +10,8 @@ import java.nio.file.Files;
 
 @UtilityClass
 public final class FileUtil {
+    // @qe7
+    // TODO: rewrite this shit code, this FileUtil is fine but can be so much better
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private static final String FILE_EXTENSION = ".json";
