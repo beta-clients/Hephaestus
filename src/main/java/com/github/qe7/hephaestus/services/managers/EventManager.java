@@ -55,7 +55,7 @@ public final class EventManager implements Service {
             // @qe7
             // I debated whether to support event cancellation by checking if it's cancelled after each listener call.
             // Really depends on the use case, but for now I think it's simpler to just not support it and let listeners handle it themselves if needed.
-            // Can be pank for cancelling events by one listener and having that affect other listeners, but I don't think we have any use cases for that right now,
+            // Can be jank for cancelling events by one listener and having that affect other listeners, but I don't think we have any use cases for that right now,
             // and it can always be re-added later if needed.
 
             /*if (event instanceof CancellableEvent && ((CancellableEvent) event).isCancelled()) {
