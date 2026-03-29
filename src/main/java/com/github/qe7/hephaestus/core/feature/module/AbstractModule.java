@@ -3,8 +3,12 @@ package com.github.qe7.hephaestus.core.feature.module;
 import com.github.qe7.hephaestus.core.common.*;
 import com.github.qe7.hephaestus.core.feature.command.AbstractCommand;
 import com.github.qe7.hephaestus.core.feature.setting.AbstractSetting;
+import com.github.qe7.hephaestus.core.ui.Component;
+import com.github.qe7.hephaestus.core.ui.component.ParentComponent;
+import com.github.qe7.hephaestus.core.ui.component.special.ToggleableComponent;
 import com.github.qe7.hephaestus.features.settings.BooleanSetting;
 import com.github.qe7.hephaestus.features.settings.KeybindSetting;
+import com.github.qe7.hephaestus.services.managers.ModuleManager;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +35,7 @@ public abstract class AbstractModule extends AbstractCommand implements EventHan
     private boolean enabled = false;
 
     private final BooleanSetting visible = setting(new BooleanSetting("Visible", true));
-    private final KeybindSetting keybind = setting(new KeybindSetting("Keybind", Keyboard.KEY_G));
+    private final KeybindSetting keybind = setting(new KeybindSetting("Keybind", Keyboard.KEY_NONE));
 
     /**
      * Creates a new module with the given name, description, and category.
@@ -136,6 +140,47 @@ public abstract class AbstractModule extends AbstractCommand implements EventHan
                 }
             }
         }
+    }
+
+    /**
+     * Gets the GUI component for this module, which can be displayed in the client's GUI.
+     *
+     * @return The GUI component for this module, or null if the module should not be displayed in the GUI.
+     */
+    @Override
+    public Component getComponent() {
+        final ToggleableComponent toggleableComponent = new ToggleableComponent(this.getName(), this::isEnabled, this::setEnabled);
+
+        System.out.println("Building component for module: " + this.getName());
+        System.out.println("Settings for module " + this.getName() + ": " + this.settings.view().size());
+        for (AbstractSetting<?> setting : this.settings.view()) {
+            if (setting.getParent().isPresent() && setting.getParent().get() == this) {
+                toggleableComponent.children.add(buildTree(setting));
+            }
+        }
+
+        return toggleableComponent;
+    }
+
+    /**
+     * Recursively builds a component tree for the given setting and its children. This is used to create the GUI components for the module's settings.
+     *
+     * @param setting The setting for which to build the component tree.
+     * @return The root component of the tree for the given setting.
+     */
+    private Component buildTree(AbstractSetting<?> setting) {
+        Component component = setting.getComponent();
+
+        System.out.println("Building component for setting: " + setting.getName());
+        for (AbstractSetting<?> child : setting.getChildren()) {
+            System.out.println("Child setting: " + child.getName() + ", parent: " + child.getParent().map(SettingParent::toString).orElse("null"));
+            if (component instanceof ParentComponent) {
+                ParentComponent parentComponent = (ParentComponent) component;
+                parentComponent.children.add(buildTree(child));
+            }
+        }
+
+        return component;
     }
 
     /**

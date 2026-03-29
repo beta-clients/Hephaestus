@@ -8,6 +8,9 @@ import lombok.experimental.UtilityClass;
 import java.io.File;
 import java.nio.file.Files;
 
+/**
+ * An amazing utility class for handling file operations, such as creating, reading, writing, and deleting files.
+ */
 @UtilityClass
 public final class FileUtil {
     // @qe7

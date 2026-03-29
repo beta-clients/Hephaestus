@@ -8,6 +8,7 @@ import com.github.qe7.hephaestus.core.event.EventSubscriber;
 import com.github.qe7.hephaestus.core.feature.module.AbstractModule;
 import com.github.qe7.hephaestus.core.feature.module.ModuleCategory;
 import com.github.qe7.hephaestus.events.KeyPressEvent;
+import com.github.qe7.hephaestus.features.modules.client.ClickGuiModule;
 import com.github.qe7.hephaestus.features.modules.client.HudModule;
 import com.github.qe7.hephaestus.features.modules.combat.AntiKnockbackModule;
 import com.github.qe7.hephaestus.features.settings.KeybindSetting;
@@ -38,6 +39,7 @@ public final class ModuleManager implements Service, EventHandler {
 
         modules.add(new HudModule());
         modules.add(new AntiKnockbackModule());
+        modules.add(new ClickGuiModule());
 
         modules.forEach(module -> {
             this.modules.put(module.getClass(), module);

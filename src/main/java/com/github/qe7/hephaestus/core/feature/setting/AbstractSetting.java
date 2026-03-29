@@ -17,19 +17,23 @@ import java.util.function.Supplier;
  *
  * @param <T> The type of the setting's value.
  */
-@Getter
-@Setter
 public abstract class AbstractSetting<T> implements Serialized, Displayable, ChildNode<SettingParent>, Hideable<AbstractSetting<T>>, SettingParent {
 
     private final ChildRegistry<SettingParent, AbstractSetting<?>> childRegistry = new ChildRegistry<>(this);
 
+    @Getter
     private final String name;
 
+    @Getter
     private final T defaultValue;
+    @Getter
+    @Setter
     private T value;
 
     private SettingParent parent;
 
+    @Getter
+    @Setter
     private Supplier<Boolean> hideCondition = () -> false;
 
     public AbstractSetting(String name, T defaultValue) {
@@ -77,7 +81,7 @@ public abstract class AbstractSetting<T> implements Serialized, Displayable, Chi
      */
     @Override
     public List<AbstractSetting<?>> getChildren() {
-        return Collections.unmodifiableList(childRegistry.view());
+        return childRegistry.view();
     }
 
     /**

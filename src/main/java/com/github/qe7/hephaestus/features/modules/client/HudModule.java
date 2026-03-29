@@ -6,16 +6,26 @@ import com.github.qe7.hephaestus.core.event.EventSubscriber;
 import com.github.qe7.hephaestus.core.feature.module.AbstractModule;
 import com.github.qe7.hephaestus.core.feature.module.ModuleCategory;
 import com.github.qe7.hephaestus.events.Render2DEvent;
+import com.github.qe7.hephaestus.features.settings.BooleanSetting;
 import com.github.qe7.hephaestus.services.managers.ModuleManager;
 import net.minecraft.src.FontRenderer;
 import net.minecraft.src.ScaledResolution;
 
 import java.awt.*;
 
+/**
+ * @author qe7
+ * @since 2.0.0
+ */
 public final class HudModule extends AbstractModule {
+
+    private final BooleanSetting showModules = setting(new BooleanSetting("Show Modules", true));
+    private final BooleanSetting showSuffixes = setting(new BooleanSetting("Show Suffixes", true));
 
     public HudModule() {
         super("HUD", "Displays information on the ui", ModuleCategory.CLIENT);
+
+        showModules.setting(showSuffixes);
 
         this.setEnabled(true); // Set enabled by default - @qe7
         this.getVisible().setValue(false); // Not visible by default, it's always seen so why have it in the list? - @qe7
@@ -40,18 +50,23 @@ public final class HudModule extends AbstractModule {
                 scaledResolution.getScaledHeight() - (8) - 2,
                 Color.WHITE.getRGB());
 
-        int offset = 2;
-        for (AbstractModule module : Hephaestus.getInstance().getServices().get(ModuleManager.class).getModules()) {
-            if (!module.getVisible().getValue()) {
-                continue;
+        if (this.showModules.getValue()) {
+            int offset = 2;
+            for (AbstractModule module : Hephaestus.getInstance().getServices().get(ModuleManager.class).getModules()) {
+                if (!module.isEnabled()) {
+                    continue;
+                }
+                if (!module.getVisible().getValue()) {
+                    continue;
+                }
+                String moduleSuffix = module.getSuffix() != null && this.showSuffixes.getValue() ? " " + module.getSuffix() : "";
+                String moduleName = module.getName() + moduleSuffix;
+                fontRenderer.drawStringWithShadow(moduleName,
+                        scaledResolution.getScaledWidth() - fontRenderer.getStringWidth(moduleName) - 2,
+                        offset,
+                        module.getCategory().getColor());
+                offset += 10;
             }
-            String moduleSuffix = module.getSuffix() != null ? " " + module.getSuffix() : "";
-            String moduleName = module.getName() + moduleSuffix;
-            fontRenderer.drawStringWithShadow(moduleName,
-                    scaledResolution.getScaledWidth() - fontRenderer.getStringWidth(moduleName) - 2,
-                    offset,
-                    module.getCategory().getColor());
-            offset += 10;
         }
     };
 }

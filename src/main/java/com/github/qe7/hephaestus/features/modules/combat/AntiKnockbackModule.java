@@ -7,6 +7,10 @@ import com.github.qe7.hephaestus.core.feature.module.ModuleCategory;
 import com.github.qe7.hephaestus.events.PacketEvent;
 import net.minecraft.src.Packet28EntityVelocity;
 
+/**
+ * @author qe7
+ * @since 2.0.0
+ */
 public final class AntiKnockbackModule extends AbstractModule {
 
     public AntiKnockbackModule() {

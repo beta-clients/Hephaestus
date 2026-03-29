@@ -1,6 +1,8 @@
 package com.github.qe7.hephaestus.features.settings;
 
 import com.github.qe7.hephaestus.core.feature.setting.AbstractSetting;
+import com.github.qe7.hephaestus.core.ui.Component;
+import com.github.qe7.hephaestus.core.ui.component.special.ToggleableComponent;
 import com.google.gson.JsonObject;
 
 public final class BooleanSetting extends AbstractSetting<Boolean> {
@@ -21,5 +23,10 @@ public final class BooleanSetting extends AbstractSetting<Boolean> {
         if (object.has(getName())) {
             setValue(object.get(getName()).getAsBoolean());
         }
+    }
+
+    @Override
+    public Component getComponent() {
+        return new ToggleableComponent(getName(), this::getValue, this::setValue);
     }
 }
